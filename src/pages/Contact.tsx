@@ -37,52 +37,6 @@ export default function Contact() {
             <span className="text-sm text-muted">LinkedIn</span>
           </a>
         </div>
-
-        {/* Contact form placeholder */}
-        <form
-          onSubmit={(e) => e.preventDefault()}
-          className="space-y-4"
-        >
-          <div>
-            <label htmlFor="name" className="mb-1 block text-sm text-muted">
-              Name
-            </label>
-            <input
-              id="name"
-              type="text"
-              className="w-full rounded-lg border border-border bg-surface px-4 py-2.5 text-sm text-text outline-none transition-colors focus:border-accent"
-              placeholder="Your name"
-            />
-          </div>
-          <div>
-            <label htmlFor="email" className="mb-1 block text-sm text-muted">
-              Email
-            </label>
-            <input
-              id="email"
-              type="email"
-              className="w-full rounded-lg border border-border bg-surface px-4 py-2.5 text-sm text-text outline-none transition-colors focus:border-accent"
-              placeholder="you@example.com"
-            />
-          </div>
-          <div>
-            <label htmlFor="message" className="mb-1 block text-sm text-muted">
-              Message
-            </label>
-            <textarea
-              id="message"
-              rows={4}
-              className="w-full resize-none rounded-lg border border-border bg-surface px-4 py-2.5 text-sm text-text outline-none transition-colors focus:border-accent"
-              placeholder="What's on your mind?"
-            />
-          </div>
-          <button
-            type="submit"
-            className="rounded-lg bg-accent px-6 py-2.5 text-sm font-medium text-white transition-colors hover:bg-accent-hover"
-          >
-            Send Message
-          </button>
-        </form>
       </div>
     </div>
   );
