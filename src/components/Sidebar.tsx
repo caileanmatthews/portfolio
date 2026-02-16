@@ -12,17 +12,14 @@ export default function Sidebar() {
   return (
     <>
       {/* Mobile top bar */}
-      <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between border-b border-border bg-surface/80 px-4 py-3 backdrop-blur-sm md:hidden">
-        <span className="text-lg font-bold text-accent">
-          {profile.name.split(" ").map((n) => n[0]).join("")}
-        </span>
+      <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-end border-b border-border bg-surface/80 px-4 py-3 backdrop-blur-sm md:hidden">
         <div className="flex gap-4">
           {navItems.map((item) => (
             <NavLink
               key={item.to}
               to={item.to}
               className={({ isActive }) =>
-                `text-sm transition-colors ${isActive ? "text-accent" : "text-muted hover:text-text"}`
+                `text-sm ${isActive ? "text-accent" : "text-muted hover:text-text"}`
               }
             >
               {item.label}
@@ -31,23 +28,16 @@ export default function Sidebar() {
         </div>
       </nav>
 
-      {/* Desktop sidebar */}
-      <aside className="group fixed top-0 left-0 z-50 hidden h-screen w-16 flex-col border-r border-border bg-surface transition-all duration-300 hover:w-60 md:flex">
-        {/* Logo */}
-        <div className="flex h-16 items-center justify-center px-4">
-          <span className="text-xl font-bold text-accent">
-            {profile.name.split(" ").map((n) => n[0]).join("")}
-          </span>
-        </div>
-
+      {/* Desktop sidebar - always expanded */}
+      <aside className="fixed top-0 left-0 z-50 hidden h-screen w-60 flex-col border-r border-border bg-surface md:flex">
         {/* Nav links */}
-        <nav className="mt-8 flex flex-1 flex-col gap-1 px-2">
+        <nav className="mt-4 flex flex-1 flex-col gap-1 px-2">
           {navItems.map((item) => (
             <NavLink
               key={item.to}
               to={item.to}
               className={({ isActive }) =>
-                `flex items-center gap-3 rounded-lg px-3 py-2.5 transition-colors ${
+                `flex items-center gap-3 px-3 py-2.5 ${
                   isActive
                     ? "bg-accent/10 text-accent"
                     : "text-muted hover:bg-border/50 hover:text-text"
@@ -55,9 +45,7 @@ export default function Sidebar() {
               }
             >
               <item.icon className="h-5 w-5 shrink-0" />
-              <span className="overflow-hidden opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                {item.label}
-              </span>
+              <span>{item.label}</span>
             </NavLink>
           ))}
         </nav>
@@ -68,23 +56,19 @@ export default function Sidebar() {
             href={profile.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted transition-colors hover:text-text"
+            className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted hover:text-text"
           >
             <GitHubIcon className="h-5 w-5 shrink-0" />
-            <span className="overflow-hidden opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-              GitHub
-            </span>
+            <span>GitHub</span>
           </a>
           <a
             href={profile.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted transition-colors hover:text-text"
+            className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted hover:text-text"
           >
             <LinkedInIcon className="h-5 w-5 shrink-0" />
-            <span className="overflow-hidden opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-              LinkedIn
-            </span>
+            <span>LinkedIn</span>
           </a>
         </div>
       </aside>

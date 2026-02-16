@@ -9,8 +9,8 @@ export default function App() {
   return (
     <BrowserRouter>
       <Sidebar />
-      <main className="pt-14 md:pt-0 md:pl-16">
-        <div className="mx-auto max-w-4xl">
+      <main className="pt-14 md:pt-0 md:pl-60">
+        <div>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/projects" element={<Projects />} />

@@ -2,9 +2,11 @@ import { profile } from "../data/mock";
 
 export default function Contact() {
   return (
-    <div className="flex min-h-screen items-center justify-center px-6">
+    <div className="min-h-screen px-6">
+      <h1 className="pt-10 pl-2 text-5xl font-bold">Contact</h1>
+      <div className="flex min-h-[calc(100vh-120px)] items-center justify-center">
       <div className="w-full max-w-lg">
-        <h1 className="mb-2 text-3xl font-bold">Get in Touch</h1>
+        <h2 className="mb-2 text-3xl font-bold">Get in Touch</h2>
         <p className="mb-8 text-muted">
           Have a project in mind or just want to chat? Reach out.
         </p>
@@ -37,6 +39,7 @@ export default function Contact() {
             <span className="text-sm text-muted">LinkedIn</span>
           </a>
         </div>
+      </div>
       </div>
     </div>
   );

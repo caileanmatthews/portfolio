@@ -1,4 +1,3 @@
-import { useEffect, useRef } from "react";
 import {
   education,
   technicalSkills,
@@ -7,51 +6,20 @@ import {
   certifications,
 } from "../data/mock";
 
-function useScrollReveal() {
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-
-    const children = el.querySelectorAll<HTMLElement>("[data-reveal]");
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            (entry.target as HTMLElement).classList.add("animate-slide-in");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.1 },
-    );
-
-    children.forEach((child) => observer.observe(child));
-    return () => observer.disconnect();
-  }, []);
-
-  return ref;
-}
-
 export default function Resume() {
-  const containerRef = useScrollReveal();
-
   return (
-    <div className="px-6 py-20" ref={containerRef}>
-      <h1 className="mb-2 text-3xl font-bold">Resume</h1>
+    <div className="px-6 pt-10">
+      <h1 className="mb-2 pl-2 text-5xl font-bold">Resume</h1>
       <p className="mb-10 text-muted">Education, skills, and achievements.</p>
 
       {/* Education */}
       <section className="mb-10">
         <h2 className="mb-4 text-lg font-semibold text-accent">Education</h2>
         <div className="space-y-4">
-          {education.map((edu, i) => (
+          {education.map((edu) => (
             <div
               key={edu.degree + edu.school}
-              data-reveal
-              className="rounded-xl border border-border bg-surface p-5 opacity-0"
-              style={{ animationDelay: `${i * 0.1}s` }}
+              className="rounded-xl border border-border bg-surface p-5"
             >
               <div className="flex flex-col justify-between gap-1 sm:flex-row sm:items-start">
                 <div>
@@ -76,10 +44,7 @@ export default function Resume() {
         <h2 className="mb-4 text-lg font-semibold text-accent">
           Technical Skills
         </h2>
-        <div
-          data-reveal
-          className="rounded-xl border border-border bg-surface p-5 opacity-0"
-        >
+        <div className="rounded-xl border border-border bg-surface p-5">
           <div className="space-y-3">
             {technicalSkills.map((cat) => (
               <div key={cat.category}>
@@ -97,12 +62,10 @@ export default function Resume() {
       <section className="mb-10">
         <h2 className="mb-4 text-lg font-semibold text-accent">Leadership</h2>
         <div className="space-y-4">
-          {leadership.map((l, i) => (
+          {leadership.map((l) => (
             <div
               key={l.organization}
-              data-reveal
-              className="rounded-xl border border-border bg-surface p-5 opacity-0"
-              style={{ animationDelay: `${i * 0.1}s` }}
+              className="rounded-xl border border-border bg-surface p-5"
             >
               <div className="flex flex-col justify-between gap-1 sm:flex-row sm:items-start">
                 <div>
@@ -127,10 +90,7 @@ export default function Resume() {
         <h2 className="mb-4 text-lg font-semibold text-accent">
           Honors & Awards
         </h2>
-        <div
-          data-reveal
-          className="rounded-xl border border-border bg-surface p-5 opacity-0"
-        >
+        <div className="rounded-xl border border-border bg-surface p-5">
           <ul className="space-y-2">
             {awards.map((a) => (
               <li key={a.title} className="text-sm">
@@ -147,10 +107,7 @@ export default function Resume() {
         <h2 className="mb-4 text-lg font-semibold text-accent">
           Certifications
         </h2>
-        <div
-          data-reveal
-          className="rounded-xl border border-border bg-surface p-5 opacity-0"
-        >
+        <div className="rounded-xl border border-border bg-surface p-5">
           <ul className="space-y-1">
             {certifications.map((c) => (
               <li key={c} className="text-sm text-muted">

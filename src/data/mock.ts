@@ -5,13 +5,9 @@ export const profile = {
   techStack: [
     "Python",
     "TypeScript",
-    "JavaScript",
     "React",
     "FastAPI",
-    "Django",
-    "PostgreSQL",
     "AWS",
-    "Docker",
     "Tailwind CSS",
   ],
   email: "matthewsmcailean@gmail.com",

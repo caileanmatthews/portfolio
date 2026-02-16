@@ -1,13 +1,13 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bg: #0a0a0f;
-  --color-surface: #12121a;
-  --color-border: #1e1e2e;
-  --color-text: #e4e4e7;
-  --color-muted: #71717a;
-  --color-accent: #38bdf8;
-  --color-accent-hover: #7dd3fc;
+  --color-bg: #000000;
+  --color-surface: #111111;
+  --color-border: #222222;
+  --color-text: #ffffff;
+  --color-muted: #999999;
+  --color-accent: #60a5fa;
+  --color-accent-hover: #93c5fd;
 }
 
 html {
@@ -17,7 +17,7 @@ html {
 body {
   background-color: var(--color-bg);
   color: var(--color-text);
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 /* Subtle noise texture overlay */
@@ -38,17 +38,6 @@ body::before {
   z-index: 1;
 }
 
-/* Gradient accent border animation */
-@keyframes gradient-shift {
-  0%,
-  100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-}
-
 .gradient-border {
   background: linear-gradient(
     135deg,
@@ -56,40 +45,6 @@ body::before {
     #67e8f9,
     var(--color-accent)
   );
-  background-size: 200% 200%;
-  animation: gradient-shift 4s ease infinite;
-}
-
-/* Rising animation */
-@keyframes rise {
-  from {
-    opacity: 0;
-    transform: translateY(24px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-rise {
-  animation: rise 0.6s ease-out both;
-}
-
-/* Slide-in animation */
-@keyframes slide-in {
-  from {
-    opacity: 0;
-    transform: translateX(-24px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-.animate-slide-in {
-  animation: slide-in 0.5s ease-out both;
 }
 
 /* Scrollbar styling */
